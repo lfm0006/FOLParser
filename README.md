@@ -10,4 +10,12 @@ Some representation features:
 - Logical equivalence (<->)
 
 <H2>Example</H2>
-For instance, the tableaux for (_A | _B) -> _B  
+For instance, the resolution tableaux for (_A | _B) -> _B  is
+
+1: (_A|_B)->_B = false (F)
+2:    (_A|_B) = true (F)
+3:       _B = false (T)
+4:          _A = true (T)
+4:          _B = true (T)
+
+

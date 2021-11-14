@@ -22,7 +22,7 @@ The generated graph for this resolution is:<BR>
 
 ![image](https://user-images.githubusercontent.com/10674874/141703088-d91629ae-c604-4893-9e99-ce5fa5b3319c.png)
 
-<B>((_A -> _Q(#b)) & ~_Q(#b)) -> ~_A</B><BR><BR>
+<B>((_A -> _Q(#b)) & ~_Q(#b)) -> ~_A</B><BR>
   
 1: ((_A->_Q(#b))\&\~_Q(#b))->~_A = false (F)<BR>
 2:    ((_A->_Q(#b))\&\~_Q(#b)) = true (F)<BR>

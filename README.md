@@ -18,3 +18,4 @@ For instance, the resolution tableaux for (_A | _B) -> _B  is<BR><BR>
 4:          _B = true (T)<BR>
 
 
+![image](https://user-images.githubusercontent.com/10674874/141703088-d91629ae-c604-4893-9e99-ce5fa5b3319c.png)

@@ -1,0 +1,481 @@
+--------------------------------------------------------------------------
+-- 12.1a: (_A | _B) -> _B
+--------------------------------------------------------------------------
+{(_A|_B)->_B=false}
+{(_A|_B)=true, _B=false, (_A|_B)->_B=false}
+{(_A|_B)=true, _B=false, (_A|_B)->_B=false}
+{(_A|_B)=true, _B=true, _A=true, (_A|_B)->_B=false}
+{(_A|_B)=true, _B=true, _A=true, (_A|_B)->_B=false}
+{(_A|_B)=true, _B=true, _A=true, (_A|_B)->_B=false}
+{(_A|_B)=true, _B=true, _A=true, (_A|_B)->_B=false}
+
+1: (_A|_B)->_B = false (F)
+2:    (_A|_B) = true (F)
+3:       _B = false (T)
+4:          _A = true (T)
+4:          _B = true (T)
+
+(_A | _B) -> _B: OK
+--------------------------------------------------------------------------
+-- 12.1b: _B -> ((~_A) | _B)
+--------------------------------------------------------------------------
+{_B->((~_A)|_B)=false}
+{((~_A)|_B)=false, _B->((~_A)|_B)=false, _B=true}
+{((~_A)|_B)=false, _B->((~_A)|_B)=false, _B=true}
+{((~_A)|_B)=false, _B->((~_A)|_B)=false, _B=true}
+{(~_A)=false, ((~_A)|_B)=false, _B->((~_A)|_B)=false, _B=false}
+{(~_A)=false, ((~_A)|_B)=false, _B->((~_A)|_B)=false, _B=false}
+{(~_A)=false, ((~_A)|_B)=false, _B->((~_A)|_B)=false, _B=false, _A=true}
+{(~_A)=false, ((~_A)|_B)=false, _B->((~_A)|_B)=false, _B=false, _A=true}
+{(~_A)=false, ((~_A)|_B)=false, _B->((~_A)|_B)=false, _B=false, _A=true}
+
+1: _B->((~_A)|_B) = false (F)
+2:    _B = true (T)
+3:       ((~_A)|_B) = false (F)
+4:          (~_A) = false (F)
+5:             _B = false (T)
+6:                _A = true (T)
+
+_B -> ((~_A) | _B): OK
+--------------------------------------------------------------------------
+-- 12.1c: (_F(#a) | ~(_F(#a))) -> ~(_Q(#b))
+--------------------------------------------------------------------------
+{(_F(#a)|~(_F(#a)))->~(_Q(#b))=false}
+{(_F(#a)|~(_F(#a)))->~(_Q(#b))=false, ~(_Q(#b))=false, (_F(#a)|~(_F(#a)))=true}
+{(_F(#a)|~(_F(#a)))->~(_Q(#b))=false, ~(_Q(#b))=false, (_F(#a)|~(_F(#a)))=true}
+{_F(#a)=true, ~(_F(#a))=true, (_F(#a)|~(_F(#a)))->~(_Q(#b))=false, ~(_Q(#b))=false, (_F(#a)|~(_F(#a)))=true}
+{_F(#a)=true, ~(_F(#a))=true, (_F(#a)|~(_F(#a)))->~(_Q(#b))=false, ~(_Q(#b))=false, (_F(#a)|~(_F(#a)))=true}
+{_F(#a)=null, ~(_F(#a))=true, (_F(#a)|~(_F(#a)))->~(_Q(#b))=false, ~(_Q(#b))=false, (_F(#a)|~(_F(#a)))=true}
+{(_Q(#b))=true, _F(#a)=null, ~(_F(#a))=true, (_F(#a)|~(_F(#a)))->~(_Q(#b))=false, ~(_Q(#b))=false, (_F(#a)|~(_F(#a)))=true}
+{(_Q(#b))=true, _F(#a)=null, ~(_F(#a))=true, (_F(#a)|~(_F(#a)))->~(_Q(#b))=false, ~(_Q(#b))=false, (_F(#a)|~(_F(#a)))=true}
+
+1: (_F(#a)|~(_F(#a)))->~(_Q(#b)) = false (F)
+2:    (_F(#a)|~(_F(#a))) = true (F)
+3:       ~(_Q(#b)) = false (F)
+4:          _F(#a) = true (T)
+5:             (_Q(#b)) = true (F)
+4:          ~(_F(#a)) = true (F)
+5:             (_Q(#b)) = true (F)
+
+(_F(#a) | ~(_F(#a))) -> ~(_Q(#b)): OK
+--------------------------------------------------------------------------
+-- 12.1d: (_A & _B) -> (~(~_B))
+--------------------------------------------------------------------------
+{(_A&_B)->(~(~_B))=false}
+{(~(~_B))=false, (_A&_B)->(~(~_B))=false, (_A&_B)=true}
+{(~(~_B))=false, (_A&_B)->(~(~_B))=false, (_A&_B)=true}
+{(~(~_B))=false, _B=true, (_A&_B)->(~(~_B))=false, _A=true, (_A&_B)=true}
+{(~(~_B))=false, _B=true, (_A&_B)->(~(~_B))=false, _A=true, (_A&_B)=true}
+{(~(~_B))=false, _B=true, (_A&_B)->(~(~_B))=false, _A=true, (_A&_B)=true}
+{(~(~_B))=false, _B=true, (_A&_B)->(~(~_B))=false, _A=true, (_A&_B)=true}
+{(~(~_B))=false, (~_B)=true, _B=true, (_A&_B)->(~(~_B))=false, _A=true, (_A&_B)=true}
+{(~(~_B))=false, (~_B)=true, _B=true, (_A&_B)->(~(~_B))=false, _A=true, (_A&_B)=true}
+{(~(~_B))=false, (~_B)=true, _B=false, (_A&_B)->(~(~_B))=false, _A=true, (_A&_B)=true}
+{(~(~_B))=false, (~_B)=true, _B=false, (_A&_B)->(~(~_B))=false, _A=true, (_A&_B)=true}
+
+1: (_A&_B)->(~(~_B)) = false (F)
+2:    (_A&_B) = true (F)
+3:       (~(~_B)) = false (F)
+4:          _A = true (T)
+5:             _B = true (T)
+6:                (~_B) = true (F)
+7:                   _B = false (T)
+
+(_A & _B) -> (~(~_B)): OK
+--------------------------------------------------------------------------
+-- 12.1e: ~(~_A) & (_A -> _B)
+--------------------------------------------------------------------------
+{~(~_A)&(_A->_B)=false}
+{~(~_A)=false, (_A->_B)=false, ~(~_A)&(_A->_B)=false}
+{~(~_A)=false, (~_A)=true, (_A->_B)=false, ~(~_A)&(_A->_B)=false}
+{~(~_A)=false, (~_A)=true, (_A->_B)=false, ~(~_A)&(_A->_B)=false}
+{~(~_A)=false, (~_A)=true, (_A->_B)=false, _A=false, ~(~_A)&(_A->_B)=false}
+{~(~_A)=false, (~_A)=true, (_A->_B)=false, _A=false, ~(~_A)&(_A->_B)=false}
+{~(~_A)=false, (~_A)=true, (_A->_B)=false, _A=false, ~(~_A)&(_A->_B)=false}
+{~(~_A)=false, (~_A)=true, (_A->_B)=false, _B=false, _A=true, ~(~_A)&(_A->_B)=false}
+{~(~_A)=false, (~_A)=true, (_A->_B)=false, _B=false, _A=true, ~(~_A)&(_A->_B)=false}
+{~(~_A)=false, (~_A)=true, (_A->_B)=false, _B=false, _A=true, ~(~_A)&(_A->_B)=false}
+
+1: ~(~_A)&(_A->_B) = false (F)
+2:    ~(~_A) = false (F)
+3:       (~_A) = true (F)
+4:          _A = false (T)
+2:    (_A->_B) = false (F)
+3:       (~_A) = true (F)
+4:          _A = true (T)
+5:             _B = false (T)
+
+~(~_A) & (_A -> _B): OK
+--------------------------------------------------------------------------
+-- 12.1f: ~(~_P(#a)) <-> (_P(#a) | _P(#a))
+--------------------------------------------------------------------------
+{~(~_P(#a))<->(_P(#a)|_P(#a))=false}
+{(_P(#a)|_P(#a))=false, ~(~_P(#a))<->(_P(#a)|_P(#a))=false, ~(~_P(#a))=true}
+{(_P(#a)|_P(#a))=false, (~_P(#a))=true, ~(~_P(#a))<->(_P(#a)|_P(#a))=false, ~(~_P(#a))=true}
+{(_P(#a)|_P(#a))=false, (~_P(#a))=true, ~(~_P(#a))<->(_P(#a)|_P(#a))=false, ~(~_P(#a))=true}
+{(_P(#a)|_P(#a))=false, (~_P(#a))=true, _P(#a)=false, ~(~_P(#a))<->(_P(#a)|_P(#a))=false, ~(~_P(#a))=true}
+{(_P(#a)|_P(#a))=false, (~_P(#a))=true, _P(#a)=false, ~(~_P(#a))<->(_P(#a)|_P(#a))=false, ~(~_P(#a))=true}
+{(_P(#a)|_P(#a))=false, (~_P(#a))=true, _P(#a)=false, ~(~_P(#a))<->(_P(#a)|_P(#a))=false, ~(~_P(#a))=true}
+
+1: ~(~_P(#a))<->(_P(#a)|_P(#a)) = false (F)
+2:    ~(~_P(#a)) = true (F)
+3:       (_P(#a)|_P(#a)) = false (F)
+4:          (_P(#a)|_P(#a)) = true (F)
+5:             (~_P(#a)) = true (F)
+6:                _P(#a) = false (T)
+7:                   _P(#a) = false (T)
+8:                      _P(#a) = false (T)
+2:    ~(~_P(#a)) = false (F)
+3:       (_P(#a)|_P(#a)) = false (F)
+4:          (_P(#a)|_P(#a)) = true (F)
+5:             (~_P(#a)) = true (F)
+
+~(~_P(#a)) <-> (_P(#a) | _P(#a)): OK
+--------------------------------------------------------------------------
+-- 12.1g: _L(#c) | ~(_L(#c) & _T(#s))
+--------------------------------------------------------------------------
+{_L(#c)|~(_L(#c)&_T(#s))=false}
+{_L(#c)=false, ~(_L(#c)&_T(#s))=false, _L(#c)|~(_L(#c)&_T(#s))=false}
+{_L(#c)=false, (_L(#c)&_T(#s))=true, ~(_L(#c)&_T(#s))=false, _L(#c)|~(_L(#c)&_T(#s))=false}
+{_L(#c)=false, (_L(#c)&_T(#s))=true, ~(_L(#c)&_T(#s))=false, _L(#c)|~(_L(#c)&_T(#s))=false}
+{_L(#c)=true, (_L(#c)&_T(#s))=true, ~(_L(#c)&_T(#s))=false, _T(#s)=true, _L(#c)|~(_L(#c)&_T(#s))=false}
+
+1: _L(#c)|~(_L(#c)&_T(#s)) = false (F)
+2:    _L(#c) = false (T)
+3:       ~(_L(#c)&_T(#s)) = false (F)
+4:          (_L(#c)&_T(#s)) = true (F)
+5:             _L(#c) = true (T)
+6:                _T(#s) = true (T)
+
+_L(#c) | ~(_L(#c) & _T(#s)): OK
+--------------------------------------------------------------------------
+-- 12.1h: (_A & _A) <-> _A
+--------------------------------------------------------------------------
+{(_A&_A)<->_A=false}
+{_A=false, (_A&_A)<->_A=false, (_A&_A)=true}
+{_A=false, (_A&_A)<->_A=false, (_A&_A)=true}
+{_A=true, (_A&_A)<->_A=false, (_A&_A)=true}
+{_A=true, (_A&_A)<->_A=false, (_A&_A)=true}
+{_A=true, (_A&_A)<->_A=false, (_A&_A)=true}
+{_A=true, (_A&_A)<->_A=false, (_A&_A)=true}
+
+1: (_A&_A)<->_A = false (F)
+2:    (_A&_A) = true (F)
+3:       _A = false (T)
+4:          _A = true (T)
+5:             _A = true (T)
+6:                _A = true (T)
+2:    (_A&_A) = false (F)
+3:       _A = false (T)
+4:          _A = true (T)
+
+(_A & _A) <-> _A: OK
+--------------------------------------------------------------------------
+-- 12.1i: _A -> (_B -> ~(~(_A)))
+--------------------------------------------------------------------------
+{_A->(_B->~(~(_A)))=false}
+{_A->(_B->~(~(_A)))=false, _A=true, (_B->~(~(_A)))=false}
+{_A->(_B->~(~(_A)))=false, _A=true, (_B->~(~(_A)))=false}
+{_A->(_B->~(~(_A)))=false, _A=true, (_B->~(~(_A)))=false}
+{_A->(_B->~(~(_A)))=false, ~(~(_A))=false, _B=true, _A=true, (_B->~(~(_A)))=false}
+{_A->(_B->~(~(_A)))=false, ~(~(_A))=false, _B=true, _A=true, (_B->~(~(_A)))=false}
+{_A->(_B->~(~(_A)))=false, ~(~(_A))=false, _B=true, _A=true, (_B->~(~(_A)))=false}
+{_A->(_B->~(~(_A)))=false, ~(~(_A))=false, _B=true, _A=true, (_B->~(~(_A)))=false}
+{_A->(_B->~(~(_A)))=false, ~(~(_A))=false, _B=true, _A=true, (_B->~(~(_A)))=false}
+{_A->(_B->~(~(_A)))=false, ~(~(_A))=false, _B=true, _A=null, (_B->~(~(_A)))=false}
+{_A->(_B->~(~(_A)))=false, ~(~(_A))=false, _B=true, _A=null, (_B->~(~(_A)))=false}
+
+1: _A->(_B->~(~(_A))) = false (F)
+2:    _A = true (T)
+3:       (_B->~(~(_A))) = false (F)
+4:          _B = true (T)
+5:             ~(~(_A)) = false (F)
+
+_A -> (_B -> ~(~(_A))): OK
+--------------------------------------------------------------------------
+-- 12.1j: ((_A -> _Q(#b)) & (~_Q(#b))) -> (~_A)
+--------------------------------------------------------------------------
+{((_A->_Q(#b))&(~_Q(#b)))->(~_A)=false}
+{(~_A)=false, ((_A->_Q(#b))&(~_Q(#b)))=true, ((_A->_Q(#b))&(~_Q(#b)))->(~_A)=false}
+{(~_A)=false, ((_A->_Q(#b))&(~_Q(#b)))=true, ((_A->_Q(#b))&(~_Q(#b)))->(~_A)=false}
+{(~_Q(#b))=true, (~_A)=false, ((_A->_Q(#b))&(~_Q(#b)))=true, ((_A->_Q(#b))&(~_Q(#b)))->(~_A)=false, (_A->_Q(#b))=true}
+{(~_Q(#b))=true, (~_A)=false, ((_A->_Q(#b))&(~_Q(#b)))=true, ((_A->_Q(#b))&(~_Q(#b)))->(~_A)=false, (_A->_Q(#b))=true}
+{(~_Q(#b))=true, (~_A)=false, _Q(#b)=true, ((_A->_Q(#b))&(~_Q(#b)))=true, ((_A->_Q(#b))&(~_Q(#b)))->(~_A)=false, _A=false, (_A->_Q(#b))=true}
+{(~_Q(#b))=true, (~_A)=false, _Q(#b)=true, ((_A->_Q(#b))&(~_Q(#b)))=true, ((_A->_Q(#b))&(~_Q(#b)))->(~_A)=false, _A=false, (_A->_Q(#b))=true}
+{(~_Q(#b))=true, (~_A)=false, _Q(#b)=true, ((_A->_Q(#b))&(~_Q(#b)))=true, ((_A->_Q(#b))&(~_Q(#b)))->(~_A)=false, _A=false, (_A->_Q(#b))=true}
+{(~_Q(#b))=true, (~_A)=false, _Q(#b)=false, ((_A->_Q(#b))&(~_Q(#b)))=true, ((_A->_Q(#b))&(~_Q(#b)))->(~_A)=false, _A=false, (_A->_Q(#b))=true}
+{(~_Q(#b))=true, (~_A)=false, _Q(#b)=false, ((_A->_Q(#b))&(~_Q(#b)))=true, ((_A->_Q(#b))&(~_Q(#b)))->(~_A)=false, _A=false, (_A->_Q(#b))=true}
+{(~_Q(#b))=true, (~_A)=false, _Q(#b)=false, ((_A->_Q(#b))&(~_Q(#b)))=true, ((_A->_Q(#b))&(~_Q(#b)))->(~_A)=false, _A=true, (_A->_Q(#b))=true}
+{(~_Q(#b))=true, (~_A)=false, _Q(#b)=false, ((_A->_Q(#b))&(~_Q(#b)))=true, ((_A->_Q(#b))&(~_Q(#b)))->(~_A)=false, _A=true, (_A->_Q(#b))=true}
+
+1: ((_A->_Q(#b))&(~_Q(#b)))->(~_A) = false (F)
+2:    ((_A->_Q(#b))&(~_Q(#b))) = true (F)
+3:       (~_A) = false (F)
+4:          (_A->_Q(#b)) = true (F)
+5:             (~_Q(#b)) = true (F)
+6:                _A = false (T)
+7:                   _Q(#b) = false (T)
+8:                      _A = true (T)
+6:                _Q(#b) = true (T)
+7:                   _Q(#b) = false (T)
+8:                      _A = true (T)
+
+((_A -> _Q(#b)) & (~_Q(#b))) -> (~_A): OK
+--------------------------------------------------------------------------
+-- 12.1k: ~(_A | _P(#b)) <-> (~_A | ~_P(#b))
+--------------------------------------------------------------------------
+{~(_A|_P(#b))<->(~_A|~_P(#b))=false}
+{~(_A|_P(#b))<->(~_A|~_P(#b))=false, (~_A|~_P(#b))=false, ~(_A|_P(#b))=true}
+{~(_A|_P(#b))<->(~_A|~_P(#b))=false, (~_A|~_P(#b))=false, ~(_A|_P(#b))=true, (_A|_P(#b))=true}
+{~(_A|_P(#b))<->(~_A|~_P(#b))=false, (~_A|~_P(#b))=false, ~(_A|_P(#b))=true, (_A|_P(#b))=true}
+{_P(#b)=true, ~(_A|_P(#b))<->(~_A|~_P(#b))=false, (~_A|~_P(#b))=false, ~(_A|_P(#b))=true, _A=true, (_A|_P(#b))=true}
+{_P(#b)=true, ~(_A|_P(#b))<->(~_A|~_P(#b))=false, (~_A|~_P(#b))=false, ~(_A|_P(#b))=true, _A=true, (_A|_P(#b))=true}
+{_P(#b)=true, ~(_A|_P(#b))<->(~_A|~_P(#b))=false, (~_A|~_P(#b))=false, ~(_A|_P(#b))=true, _A=true, (_A|_P(#b))=true}
+{_P(#b)=true, ~(_A|_P(#b))<->(~_A|~_P(#b))=false, (~_A|~_P(#b))=false, ~(_A|_P(#b))=true, _A=true, ~_P(#b)=false, ~_A=false, (_A|_P(#b))=true}
+{_P(#b)=true, ~(_A|_P(#b))<->(~_A|~_P(#b))=false, (~_A|~_P(#b))=false, ~(_A|_P(#b))=true, _A=true, ~_P(#b)=false, ~_A=false, (_A|_P(#b))=true}
+{_P(#b)=true, ~(_A|_P(#b))<->(~_A|~_P(#b))=false, (~_A|~_P(#b))=false, ~(_A|_P(#b))=true, _A=true, ~_P(#b)=false, ~_A=false, (_A|_P(#b))=true}
+{_P(#b)=true, ~(_A|_P(#b))<->(~_A|~_P(#b))=false, (~_A|~_P(#b))=false, ~(_A|_P(#b))=true, _A=true, ~_P(#b)=false, ~_A=false, (_A|_P(#b))=true}
+
+1: ~(_A|_P(#b))<->(~_A|~_P(#b)) = false (F)
+2:    ~(_A|_P(#b)) = true (F)
+3:       (~_A|~_P(#b)) = false (F)
+4:          (~_A|~_P(#b)) = true (F)
+5:             (_A|_P(#b)) = true (F)
+6:                _A = true (T)
+7:                   ~_A = false (F)
+8:                      ~_P(#b) = false (F)
+6:                _P(#b) = true (T)
+7:                   ~_A = false (F)
+8:                      ~_P(#b) = false (F)
+2:    ~(_A|_P(#b)) = false (F)
+3:       (~_A|~_P(#b)) = false (F)
+4:          (~_A|~_P(#b)) = true (F)
+5:             (_A|_P(#b)) = true (F)
+
+~(_A | _P(#b)) <-> (~_A | ~_P(#b)): OK
+--------------------------------------------------------------------------
+-- 12.1l: ~(_B -> _B) | (_A & ~_A)
+--------------------------------------------------------------------------
+{~(_B->_B)|(_A&~_A)=false}
+{~(_B->_B)|(_A&~_A)=false, (_A&~_A)=false, ~(_B->_B)=false}
+{~(_B->_B)|(_A&~_A)=false, (_A&~_A)=false, ~(_B->_B)=false, (_B->_B)=true}
+{~(_B->_B)|(_A&~_A)=false, (_A&~_A)=false, ~(_B->_B)=false, (_B->_B)=true}
+{~(_B->_B)|(_A&~_A)=false, (_A&~_A)=false, _B=true, ~(_B->_B)=false, (_B->_B)=true}
+{~(_B->_B)|(_A&~_A)=false, (_A&~_A)=false, _B=true, ~(_B->_B)=false, (_B->_B)=true}
+{~(_B->_B)|(_A&~_A)=false, (_A&~_A)=false, _B=true, ~(_B->_B)=false, (_B->_B)=true}
+{~(_B->_B)|(_A&~_A)=false, (_A&~_A)=false, _B=true, ~(_B->_B)=false, (_B->_B)=true}
+{~(_B->_B)|(_A&~_A)=false, (_A&~_A)=false, _B=true, _A=false, ~(_B->_B)=false, ~_A=false, (_B->_B)=true}
+{~(_B->_B)|(_A&~_A)=false, (_A&~_A)=false, _B=true, _A=false, ~(_B->_B)=false, ~_A=false, (_B->_B)=true}
+{~(_B->_B)|(_A&~_A)=false, (_A&~_A)=false, _B=true, _A=false, ~(_B->_B)=false, ~_A=false, (_B->_B)=true}
+{~(_B->_B)|(_A&~_A)=false, (_A&~_A)=false, _B=true, _A=false, ~(_B->_B)=false, ~_A=false, (_B->_B)=true}
+
+1: ~(_B->_B)|(_A&~_A) = false (F)
+2:    ~(_B->_B) = false (F)
+3:       (_A&~_A) = false (F)
+4:          (_B->_B) = true (F)
+5:             _B = false (T)
+6:                _A = false (T)
+6:                ~_A = false (F)
+5:             _B = true (T)
+6:                _A = false (T)
+6:                ~_A = false (F)
+
+~(_B -> _B) | (_A & ~_A): OK
+--------------------------------------------------------------------------
+-- 12.1m: ~(~(_A) -> _B) -> (~_B | ~_A)
+--------------------------------------------------------------------------
+{~(~(_A)->_B)->(~_B|~_A)=false}
+{(~_B|~_A)=false, ~(~(_A)->_B)=true, ~(~(_A)->_B)->(~_B|~_A)=false}
+{(~_B|~_A)=false, ~(~(_A)->_B)=true, ~(~(_A)->_B)->(~_B|~_A)=false, (~(_A)->_B)=true}
+{(~_B|~_A)=false, ~(~(_A)->_B)=true, ~(~(_A)->_B)->(~_B|~_A)=false, (~(_A)->_B)=true}
+{(~_B|~_A)=false, ~(~(_A)->_B)=true, ~(~(_A)->_B)->(~_B|~_A)=false, (~(_A)->_B)=true, _B=true, ~(_A)=false}
+{(~_B|~_A)=false, ~(~(_A)->_B)=true, ~(~(_A)->_B)->(~_B|~_A)=false, (~(_A)->_B)=true, _B=true, ~(_A)=false}
+{(~_B|~_A)=false, ~(~(_A)->_B)=true, ~(~(_A)->_B)->(~_B|~_A)=false, (~(_A)->_B)=true, _B=true, ~(_A)=false}
+{(~_B|~_A)=false, ~(~(_A)->_B)=true, ~(~(_A)->_B)->(~_B|~_A)=false, (~(_A)->_B)=true, _B=true, ~(_A)=false}
+{(~_B|~_A)=false, ~(~(_A)->_B)=true, ~(~(_A)->_B)->(~_B|~_A)=false, (~(_A)->_B)=true, _B=true, ~(_A)=false}
+{(~_B|~_A)=false, ~(~(_A)->_B)=true, ~(~(_A)->_B)->(~_B|~_A)=false, (~(_A)->_B)=true, _B=true, ~_A=false, ~_B=false, ~(_A)=false}
+{(~_B|~_A)=false, ~(~(_A)->_B)=true, ~(~(_A)->_B)->(~_B|~_A)=false, (~(_A)->_B)=true, _B=true, ~_A=false, ~_B=false, ~(_A)=false}
+{(~_B|~_A)=false, ~(~(_A)->_B)=true, ~(~(_A)->_B)->(~_B|~_A)=false, (~(_A)->_B)=true, _B=true, ~_A=false, ~_B=false, ~(_A)=false}
+{(~_B|~_A)=false, ~(~(_A)->_B)=true, ~(~(_A)->_B)->(~_B|~_A)=false, (~(_A)->_B)=true, _B=true, ~_A=false, ~_B=false, ~(_A)=false}
+
+1: ~(~(_A)->_B)->(~_B|~_A) = false (F)
+2:    ~(~(_A)->_B) = true (F)
+3:       (~_B|~_A) = false (F)
+4:          (~(_A)->_B) = true (F)
+5:             ~(_A) = false (F)
+6:                ~_B = false (F)
+7:                   ~_A = false (F)
+5:             _B = true (T)
+6:                ~_B = false (F)
+7:                   ~_A = false (F)
+
+~(~(_A) -> _B) -> (~_B | ~_A): OK
+--------------------------------------------------------------------------
+-- 12.1n: (_A -> (_B -> _C)) <-> ((_A -> _B) -> _C)
+--------------------------------------------------------------------------
+{(_A->(_B->_C))<->((_A->_B)->_C)=false}
+{(_A->(_B->_C))<->((_A->_B)->_C)=false, ((_A->_B)->_C)=false, (_A->(_B->_C))=true}
+{(_A->(_B->_C))<->((_A->_B)->_C)=false, ((_A->_B)->_C)=false, (_A->(_B->_C))=true}
+{(_B->_C)=true, (_A->(_B->_C))<->((_A->_B)->_C)=false, _A=false, ((_A->_B)->_C)=false, (_A->(_B->_C))=true}
+{(_B->_C)=true, (_A->(_B->_C))<->((_A->_B)->_C)=false, _A=false, ((_A->_B)->_C)=false, (_A->(_B->_C))=true}
+{(_B->_C)=true, (_A->(_B->_C))<->((_A->_B)->_C)=false, _A=false, ((_A->_B)->_C)=false, (_A->(_B->_C))=true}
+{(_B->_C)=true, (_A->(_B->_C))<->((_A->_B)->_C)=false, _B=false, _A=false, ((_A->_B)->_C)=false, (_A->(_B->_C))=true, _C=true}
+{(_B->_C)=true, (_A->(_B->_C))<->((_A->_B)->_C)=false, _B=false, _A=false, ((_A->_B)->_C)=false, (_A->(_B->_C))=true, _C=true}
+{(_B->_C)=true, (_A->(_B->_C))<->((_A->_B)->_C)=false, _B=false, _A=false, ((_A->_B)->_C)=false, (_A->(_B->_C))=true, _C=true}
+{(_B->_C)=true, (_A->(_B->_C))<->((_A->_B)->_C)=false, _B=false, _A=false, ((_A->_B)->_C)=false, (_A->(_B->_C))=true, _C=true}
+{(_B->_C)=true, (_A->_B)=true, (_A->(_B->_C))<->((_A->_B)->_C)=false, _B=false, _A=false, ((_A->_B)->_C)=false, (_A->(_B->_C))=true, _C=false}
+{(_B->_C)=true, (_A->_B)=true, (_A->(_B->_C))<->((_A->_B)->_C)=false, _B=false, _A=false, ((_A->_B)->_C)=false, (_A->(_B->_C))=true, _C=false}
+{(_B->_C)=true, (_A->_B)=true, (_A->(_B->_C))<->((_A->_B)->_C)=false, _B=true, _A=false, ((_A->_B)->_C)=false, (_A->(_B->_C))=true, _C=false}
+{(_B->_C)=true, (_A->_B)=true, (_A->(_B->_C))<->((_A->_B)->_C)=false, _B=true, _A=false, ((_A->_B)->_C)=false, (_A->(_B->_C))=true, _C=false}
+{(_B->_C)=true, (_A->_B)=true, (_A->(_B->_C))<->((_A->_B)->_C)=false, _B=true, _A=false, ((_A->_B)->_C)=false, (_A->(_B->_C))=true, _C=false}
+{(_B->_C)=true, (_A->_B)=true, (_A->(_B->_C))<->((_A->_B)->_C)=false, _B=true, _A=false, ((_A->_B)->_C)=false, (_A->(_B->_C))=true, _C=false}
+
+1: (_A->(_B->_C))<->((_A->_B)->_C) = false (F)
+2:    (_A->(_B->_C)) = true (F)
+3:       ((_A->_B)->_C) = false (F)
+4:          ((_A->_B)->_C) = true (F)
+5:             _A = false (T)
+6:                (_A->_B) = true (F)
+7:                   _C = false (T)
+8:                      _A = false (T)
+8:                      _B = true (T)
+5:             (_B->_C) = true (F)
+6:                _B = false (T)
+7:                   (_A->_B) = true (F)
+8:                      _C = false (T)
+6:                _C = true (T)
+7:                   (_A->_B) = true (F)
+8:                      _C = false (T)
+2:    (_A->(_B->_C)) = false (F)
+3:       ((_A->_B)->_C) = false (F)
+4:          ((_A->_B)->_C) = true (F)
+
+(_A -> (_B -> _C)) <-> ((_A -> _B) -> _C): OK
+--------------------------------------------------------------------------
+-- 12.1o: (_A -> (_B -> _C)) -> ((_B & _A) -> _C)
+--------------------------------------------------------------------------
+{(_A->(_B->_C))->((_B&_A)->_C)=false}
+{(_A->(_B->_C))->((_B&_A)->_C)=false, ((_B&_A)->_C)=false, (_A->(_B->_C))=true}
+{(_A->(_B->_C))->((_B&_A)->_C)=false, ((_B&_A)->_C)=false, (_A->(_B->_C))=true}
+{(_B->_C)=true, (_A->(_B->_C))->((_B&_A)->_C)=false, ((_B&_A)->_C)=false, _A=false, (_A->(_B->_C))=true}
+{(_B->_C)=true, (_A->(_B->_C))->((_B&_A)->_C)=false, ((_B&_A)->_C)=false, _A=false, (_A->(_B->_C))=true}
+{(_B->_C)=true, (_A->(_B->_C))->((_B&_A)->_C)=false, ((_B&_A)->_C)=false, _A=false, (_A->(_B->_C))=true}
+{(_B->_C)=true, (_A->(_B->_C))->((_B&_A)->_C)=false, ((_B&_A)->_C)=false, _B=false, _A=false, (_A->(_B->_C))=true, _C=true}
+{(_B->_C)=true, (_A->(_B->_C))->((_B&_A)->_C)=false, ((_B&_A)->_C)=false, _B=false, _A=false, (_A->(_B->_C))=true, _C=true}
+{(_B->_C)=true, (_A->(_B->_C))->((_B&_A)->_C)=false, ((_B&_A)->_C)=false, _B=false, _A=false, (_A->(_B->_C))=true, _C=true}
+{(_B->_C)=true, (_A->(_B->_C))->((_B&_A)->_C)=false, ((_B&_A)->_C)=false, _B=false, _A=false, (_A->(_B->_C))=true, _C=true}
+{(_B->_C)=true, (_A->(_B->_C))->((_B&_A)->_C)=false, ((_B&_A)->_C)=false, _B=false, _A=false, (_A->(_B->_C))=true, (_B&_A)=true, _C=false}
+{(_B->_C)=true, (_A->(_B->_C))->((_B&_A)->_C)=false, ((_B&_A)->_C)=false, _B=false, _A=false, (_A->(_B->_C))=true, (_B&_A)=true, _C=false}
+{(_B->_C)=true, (_A->(_B->_C))->((_B&_A)->_C)=false, ((_B&_A)->_C)=false, _B=true, _A=true, (_A->(_B->_C))=true, (_B&_A)=true, _C=false}
+{(_B->_C)=true, (_A->(_B->_C))->((_B&_A)->_C)=false, ((_B&_A)->_C)=false, _B=true, _A=true, (_A->(_B->_C))=true, (_B&_A)=true, _C=false}
+{(_B->_C)=true, (_A->(_B->_C))->((_B&_A)->_C)=false, ((_B&_A)->_C)=false, _B=true, _A=true, (_A->(_B->_C))=true, (_B&_A)=true, _C=false}
+{(_B->_C)=true, (_A->(_B->_C))->((_B&_A)->_C)=false, ((_B&_A)->_C)=false, _B=true, _A=true, (_A->(_B->_C))=true, (_B&_A)=true, _C=false}
+
+1: (_A->(_B->_C))->((_B&_A)->_C) = false (F)
+2:    (_A->(_B->_C)) = true (F)
+3:       ((_B&_A)->_C) = false (F)
+4:          _A = false (T)
+5:             (_B&_A) = true (F)
+6:                _C = false (T)
+7:                   _B = true (T)
+8:                      _A = true (T)
+4:          (_B->_C) = true (F)
+5:             _B = false (T)
+6:                (_B&_A) = true (F)
+7:                   _C = false (T)
+5:             _C = true (T)
+6:                (_B&_A) = true (F)
+7:                   _C = false (T)
+
+(_A -> (_B -> _C)) -> ((_B & _A) -> _C): OK
+--------------------------------------------------------------------------
+-- 12.1p: ~_P(#a) -> (~_P(#a) | _Q(#b))
+--------------------------------------------------------------------------
+{~_P(#a)->(~_P(#a)|_Q(#b))=false}
+{~_P(#a)->(~_P(#a)|_Q(#b))=false, ~_P(#a)=true, (~_P(#a)|_Q(#b))=false}
+{~_P(#a)->(~_P(#a)|_Q(#b))=false, ~_P(#a)=true, _P(#a)=true, (~_P(#a)|_Q(#b))=false}
+{~_P(#a)->(~_P(#a)|_Q(#b))=false, ~_P(#a)=true, _P(#a)=true, (~_P(#a)|_Q(#b))=false}
+{~_P(#a)->(~_P(#a)|_Q(#b))=false, _Q(#b)=false, ~_P(#a)=false, _P(#a)=true, (~_P(#a)|_Q(#b))=false}
+{~_P(#a)->(~_P(#a)|_Q(#b))=false, _Q(#b)=false, ~_P(#a)=false, _P(#a)=true, (~_P(#a)|_Q(#b))=false}
+
+1: ~_P(#a)->(~_P(#a)|_Q(#b)) = false (F)
+2:    ~_P(#a) = true (F)
+3:       (~_P(#a)|_Q(#b)) = false (F)
+4:          _P(#a) = true (T)
+5:             ~_P(#a) = false (F)
+6:                _Q(#b) = false (T)
+
+~_P(#a) -> (~_P(#a) | _Q(#b)): OK
+--------------------------------------------------------------------------
+-- 12.1q: (~(_A | _B) & (_C <-> _A)) -> (~_C)
+--------------------------------------------------------------------------
+{(~(_A|_B)&(_C<->_A))->(~_C)=false}
+{(~(_A|_B)&(_C<->_A))=true, (~(_A|_B)&(_C<->_A))->(~_C)=false, (~_C)=false}
+{(~(_A|_B)&(_C<->_A))=true, (~(_A|_B)&(_C<->_A))->(~_C)=false, (~_C)=false}
+{(~(_A|_B)&(_C<->_A))=true, (~(_A|_B)&(_C<->_A))->(~_C)=false, (_C<->_A)=true, ~(_A|_B)=true, (~_C)=false}
+{(~(_A|_B)&(_C<->_A))=true, (~(_A|_B)&(_C<->_A))->(~_C)=false, (_C<->_A)=true, ~(_A|_B)=true, (~_C)=false}
+{(~(_A|_B)&(_C<->_A))=true, (~(_A|_B)&(_C<->_A))->(~_C)=false, (_C<->_A)=true, ~(_A|_B)=true, (~_C)=false}
+{(~(_A|_B)&(_C<->_A))=true, (~(_A|_B)&(_C<->_A))->(~_C)=false, (_C<->_A)=true, ~(_A|_B)=true, (~_C)=false}
+{(~(_A|_B)&(_C<->_A))=true, (~(_A|_B)&(_C<->_A))->(~_C)=false, (_C<->_A)=true, ~(_A|_B)=true, (~_C)=false}
+{(~(_A|_B)&(_C<->_A))=true, (~(_A|_B)&(_C<->_A))->(~_C)=false, _A=false, (_C<->_A)=true, ~(_A|_B)=true, (~_C)=false, _C=true}
+{(~(_A|_B)&(_C<->_A))=true, (~(_A|_B)&(_C<->_A))->(~_C)=false, _A=false, (_C<->_A)=true, ~(_A|_B)=true, (~_C)=false, _C=true}
+{(~(_A|_B)&(_C<->_A))=true, (~(_A|_B)&(_C<->_A))->(~_C)=false, _A=false, (_C<->_A)=true, ~(_A|_B)=true, (~_C)=false, _C=true}
+{(~(_A|_B)&(_C<->_A))=true, (~(_A|_B)&(_C<->_A))->(~_C)=false, _A=false, (_C<->_A)=true, ~(_A|_B)=true, (~_C)=false, _C=true}
+{(~(_A|_B)&(_C<->_A))=true, (~(_A|_B)&(_C<->_A))->(~_C)=false, _A=false, (_C<->_A)=true, ~(_A|_B)=true, (~_C)=false, _C=true}
+{(~(_A|_B)&(_C<->_A))=true, (~(_A|_B)&(_C<->_A))->(~_C)=false, _A=false, (_C<->_A)=true, ~(_A|_B)=true, (~_C)=false, _C=true}
+
+1: (~(_A|_B)&(_C<->_A))->(~_C) = false (F)
+2:    (~(_A|_B)&(_C<->_A)) = true (F)
+3:       (~_C) = false (F)
+4:          ~(_A|_B) = true (F)
+5:             (_C<->_A) = true (F)
+6:                _C = true (T)
+7:                   _A = true (T)
+8:                      _A = false (T)
+9:                         _C = true (T)
+6:                _C = false (T)
+7:                   _A = true (T)
+8:                      _A = false (T)
+9:                         _C = true (T)
+
+(~(_A | _B) & (_C <-> _A)) -> (~_C): OK
+--------------------------------------------------------------------------
+-- 12.1r: (_A | (_B & _C)) -> ((_A | _B) & (_A | _C))
+--------------------------------------------------------------------------
+{(_A|(_B&_C))->((_A|_B)&(_A|_C))=false}
+{(_A|(_B&_C))=true, (_A|(_B&_C))->((_A|_B)&(_A|_C))=false, ((_A|_B)&(_A|_C))=false}
+{(_A|(_B&_C))=true, (_A|(_B&_C))->((_A|_B)&(_A|_C))=false, ((_A|_B)&(_A|_C))=false}
+{(_A|(_B&_C))=true, (_A|(_B&_C))->((_A|_B)&(_A|_C))=false, ((_A|_B)&(_A|_C))=false, _A=true, (_B&_C)=true}
+{(_A|(_B&_C))=true, (_A|(_B&_C))->((_A|_B)&(_A|_C))=false, ((_A|_B)&(_A|_C))=false, _A=true, (_B&_C)=true}
+{(_A|(_B&_C))=true, (_A|(_B&_C))->((_A|_B)&(_A|_C))=false, ((_A|_B)&(_A|_C))=false, _A=true, (_B&_C)=true}
+{(_A|(_B&_C))=true, (_A|(_B&_C))->((_A|_B)&(_A|_C))=false, ((_A|_B)&(_A|_C))=false, _B=true, _A=true, _C=true, (_B&_C)=true}
+{(_A|(_B&_C))=true, (_A|(_B&_C))->((_A|_B)&(_A|_C))=false, ((_A|_B)&(_A|_C))=false, _B=true, _A=true, _C=true, (_B&_C)=true}
+{(_A|(_B&_C))=true, (_A|(_B&_C))->((_A|_B)&(_A|_C))=false, ((_A|_B)&(_A|_C))=false, _B=true, _A=true, _C=true, (_B&_C)=true}
+{(_A|(_B&_C))=true, (_A|(_B&_C))->((_A|_B)&(_A|_C))=false, ((_A|_B)&(_A|_C))=false, _B=true, _A=true, _C=true, (_B&_C)=true}
+{(_A|_C)=false, (_A|_B)=false, (_A|(_B&_C))=true, (_A|(_B&_C))->((_A|_B)&(_A|_C))=false, ((_A|_B)&(_A|_C))=false, _B=true, _A=true, _C=true, (_B&_C)=true}
+{(_A|_C)=false, (_A|_B)=false, (_A|(_B&_C))=true, (_A|(_B&_C))->((_A|_B)&(_A|_C))=false, ((_A|_B)&(_A|_C))=false, _B=true, _A=true, _C=true, (_B&_C)=true}
+{(_A|_C)=false, (_A|_B)=false, (_A|(_B&_C))=true, (_A|(_B&_C))->((_A|_B)&(_A|_C))=false, ((_A|_B)&(_A|_C))=false, _B=false, _A=false, _C=true, (_B&_C)=true}
+{(_A|_C)=false, (_A|_B)=false, (_A|(_B&_C))=true, (_A|(_B&_C))->((_A|_B)&(_A|_C))=false, ((_A|_B)&(_A|_C))=false, _B=false, _A=false, _C=true, (_B&_C)=true}
+{(_A|_C)=false, (_A|_B)=false, (_A|(_B&_C))=true, (_A|(_B&_C))->((_A|_B)&(_A|_C))=false, ((_A|_B)&(_A|_C))=false, _B=false, _A=false, _C=true, (_B&_C)=true}
+{(_A|_C)=false, (_A|_B)=false, (_A|(_B&_C))=true, (_A|(_B&_C))->((_A|_B)&(_A|_C))=false, ((_A|_B)&(_A|_C))=false, _B=false, _A=false, _C=true, (_B&_C)=true}
+{(_A|_C)=false, (_A|_B)=false, (_A|(_B&_C))=true, (_A|(_B&_C))->((_A|_B)&(_A|_C))=false, ((_A|_B)&(_A|_C))=false, _B=false, _A=false, _C=false, (_B&_C)=true}
+{(_A|_C)=false, (_A|_B)=false, (_A|(_B&_C))=true, (_A|(_B&_C))->((_A|_B)&(_A|_C))=false, ((_A|_B)&(_A|_C))=false, _B=false, _A=false, _C=false, (_B&_C)=true}
+{(_A|_C)=false, (_A|_B)=false, (_A|(_B&_C))=true, (_A|(_B&_C))->((_A|_B)&(_A|_C))=false, ((_A|_B)&(_A|_C))=false, _B=false, _A=false, _C=false, (_B&_C)=true}
+
+1: (_A|(_B&_C))->((_A|_B)&(_A|_C)) = false (F)
+2:    (_A|(_B&_C)) = true (F)
+3:       ((_A|_B)&(_A|_C)) = false (F)
+4:          _A = true (T)
+5:             (_A|_B) = false (F)
+6:                _A = false (T)
+7:                   _B = false (T)
+5:             (_A|_C) = false (F)
+6:                _A = false (T)
+7:                   _C = false (T)
+4:          (_B&_C) = true (F)
+5:             _B = true (T)
+6:                _C = true (T)
+7:                   (_A|_B) = false (F)
+7:                   (_A|_C) = false (F)
+
+(_A | (_B & _C)) -> ((_A | _B) & (_A | _C)): OK

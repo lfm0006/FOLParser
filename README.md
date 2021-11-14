@@ -12,6 +12,7 @@ Some representation features:
 <H2>Example</H2>
 For instance, the resolution tableaux for (_A | _B) -> _B  is
 
+
 1: (_A|_B)->_B = false (F)
 
 2:    (_A|_B) = true (F)

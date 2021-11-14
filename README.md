@@ -11,7 +11,7 @@ Some representation features:
 - Logical equivalence (<->)
 
 <H2>Examples</H2>
-1) (_A | _B) -> _B  is<BR><BR>
+<B>(_A | _B) -> _B</B><BR><BR>
 1: (_A|_B)->_B = false (F)<BR>
 2:    (_A|_B) = true (F)<BR>
 3:       _B = false (T)<BR>

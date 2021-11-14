@@ -24,8 +24,8 @@ The generated graph for this resolution is:<BR>
 
 Another example, the resolution tableaux for ((_A -> _Q(#b)) & ~_Q(#b)) -> ~_A is<BR><BR>
   
-1: ((_A->_Q(#b))\&~_Q(#b))->~_A = false (F)<BR>
-2:    ((_A->_Q(#b))\&~_Q(#b)) = true (F)<BR>
+1: ((_A->_Q(#b))\&\~_Q(#b))->~_A = false (F)<BR>
+2:    ((_A->_Q(#b))\&\~_Q(#b)) = true (F)<BR>
 3:       ~_A = false (F)<BR>
 4:          (_A->_Q(#b)) = true (F)<BR>
 5:             ~_Q(#b) = true (F)<BR>

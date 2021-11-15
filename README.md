@@ -84,7 +84,7 @@ Obs.: Test cases were based on the sentences of exercise 12.1 of Mortari(2001).<
   
 <H2>References</H2>
 MORTARI, C. A. Introdução à Lógica (Introduction to Logic). S. Paulo: Ed. UNESP, 2001 (Published in portuguese).<BR>
-PARR, T. The Definitive ANTLR 4 Reference. Dallas, Texas: The Pragmatic Programmers, LLC, 2012. 
+PARR, T. The Definitive ANTLR 4 Reference. Dallas, Texas: The Pragmatic Programmers, LLC, 2012. <BR>
 RUSSELL, S.; NORVIG, P. Inteligência Artificial (Artificial Intelligence). R. de Janeiro: Elsevier, 2004.<BR>
 
 

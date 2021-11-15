@@ -68,5 +68,18 @@ The generated graph for this resolution is:<BR>
 ![image](https://user-images.githubusercontent.com/10674874/141704472-d02cd57b-c894-4bb3-98cb-54c4f01f88fb.png)
 <HR>
 
+<B>EXISTS(?y)(FORALL(?x)(_R(?x?y))) -> FORALL(?x)(EXISTS(?y)(_R(?x?y)))</B><BR>
+  
+1: EXISTS(?y)(FORALL(?x)(_R(?x?y)))->FORALL(?x)(EXISTS(?y)(_R(?x?y))) = false (F)<BR>
+2:    EXISTS(?y)(FORALL(?x)(_R(?x?y))) = true (F)<BR>
+3:       FORALL(?x)(EXISTS(?y)(_R(?x?y))) = false (F)<BR>
+4:          FORALL(?x)(_R(?x?y)) = true (F)<BR>
+5:             _R(?x?y) = true (T)<BR>
+6:                EXISTS(?y)(_R(?x?y)) = false (F)<BR>
+7:                   _R(?x?y) = false (T)<BR>
+  
+![image](https://user-images.githubusercontent.com/10674874/141704597-e9bbbb8c-bb63-4b68-9a44-93a0ccf8bfbd.png)
+
+
 
   

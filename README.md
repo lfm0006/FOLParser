@@ -5,10 +5,12 @@ FOLParser was developed in Java using ANTLR 4.0. This version is working fine wi
 
 Some representation features:
 - Variables start with underline (e.g. _A, _B, etc)
-- Predicate symbols: (e.g _P(#a), _Q(#b), etc)
+- Predicate symbols (e.g. _P(#a), _Q(#b), with constants #a, #b, etc)
+- Functions (e.g. _F(?x), _G(?y), with variables ?x, ?y, etc)
 - Logic operations use the commonplace symbols (AND as &, OR as |, NOT as ~). 
 - Logical implication (->)
 - Logical equivalence (<->)
+- Quantifiers (FORALL and EXISTS)
 
 <H2>Examples</H2>
 <B>(_A | _B) -> _B</B><BR><BR>
@@ -48,4 +50,7 @@ The generated graph for this resolution is:<BR>
 5:             _F(?x) = false (T)<BR>
 5:             _G(?x) = true (T)<BR>
   
+![image](https://user-images.githubusercontent.com/10674874/141704307-b132c12c-0106-4b2d-9a87-84c210c06d48.png)
+
+
   

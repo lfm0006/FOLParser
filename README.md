@@ -39,4 +39,13 @@ The generated graph for this resolution is:<BR>
 
 ![image](https://user-images.githubusercontent.com/10674874/141703746-11a6fe17-77df-403d-8c54-b15756042cd7.png)
 
-
+<B>FORALL(?x)(_F(?x)->_G(?x)) -> _F(#a)</B><BR>
+  
+1: FORALL(?x)(_F(?x)->_G(?x))->_F(#a) = false (F)<BR>
+2:    FORALL(?x)(_F(?x)->_G(?x)) = true (F)<BR>
+3:       _F(#a) = false (T)<BR>
+4:          _F(?x)->_G(?x) = true (F)<BR>
+5:             _F(?x) = false (T)<BR>
+5:             _G(?x) = true (T)<BR>
+  
+  

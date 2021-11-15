@@ -11,7 +11,7 @@ Some representation features:
 - Logical implication (->)
 - Logical equivalence (<->)
 - Quantifiers (FORALL and EXISTS)
-
+<HR>
 <H2>Examples</H2>
 <B>(_A | _B) -> _B</B><BR><BR>
 1: (_A|_B)->_B = false (F)<BR>

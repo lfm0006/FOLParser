@@ -1,5 +1,5 @@
 # FOLParser
-A parser for first-order logic (developed by Luciano F. de Medeiros).
+A parser for first-order logic.
 
 FOLParser was developed in Java using the ANTLR 4.0 framework (https://www.antlr.org/). This version is working fine with FOL, requiring improvements for both universal and existential quantifiers. Some sentences using quantifiers were tested, giving correct results. A test case with 18 propositional formulas was implemented in JUnit, printing in console the formal reasoning using the tableaux method. A graph of each resolution by tableaux is generated using dot (Graphviz).
 
@@ -86,6 +86,6 @@ Obs.: Test cases were based on the sentences of exercise 12.1 of Mortari(2001).<
 MORTARI, C. A. Introdução à Lógica (Introduction to Logic). S. Paulo: Ed. UNESP, 2001 (Published in portuguese).<BR>
 PARR, T. The Definitive ANTLR 4 Reference. Dallas, Texas: The Pragmatic Programmers, LLC, 2012. <BR>
 RUSSELL, S.; NORVIG, P. Inteligência Artificial (Artificial Intelligence). R. de Janeiro: Elsevier, 2004.<BR>
+<BR>
 
-
-  
+(Author: Luciano F. de Medeiros)

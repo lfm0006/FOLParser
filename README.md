@@ -23,7 +23,7 @@ Some representation features:
 The generated graph for this resolution is:<BR>
 
 ![image](https://user-images.githubusercontent.com/10674874/141703088-d91629ae-c604-4893-9e99-ce5fa5b3319c.png)
-
+<HR>
 <B>((_A -> _Q(#b)) & ~_Q(#b)) -> ~_A</B><BR>
   
 1: ((_A->_Q(#b))\&\~_Q(#b))->~_A = false (F)<BR>
@@ -40,7 +40,7 @@ The generated graph for this resolution is:<BR>
 <BR>
 
 ![image](https://user-images.githubusercontent.com/10674874/141703746-11a6fe17-77df-403d-8c54-b15756042cd7.png)
-
+<HR>
 <B>FORALL(?x)(_F(?x)->_G(?x)) -> _F(#a)</B><BR>
   
 1: FORALL(?x)(_F(?x)->_G(?x))->_F(#a) = false (F)<BR>
@@ -51,7 +51,7 @@ The generated graph for this resolution is:<BR>
 5:             _G(?x) = true (T)<BR>
  
 ![image](https://user-images.githubusercontent.com/10674874/141704307-b132c12c-0106-4b2d-9a87-84c210c06d48.png)
-
+<HR>
 <B>FORALL(?x)(_A(?x) & _B(?x)) -> (FORALL(?x)(_A(?x)) & FORALL(?x)(_B(?x)))</B><BR>
 
 1: FORALL(?x)(_A(?x)&_B(?x))->(FORALL(?x)(_A(?x))&FORALL(?x)(_B(?x))) = false (F)<BR>
@@ -66,6 +66,7 @@ The generated graph for this resolution is:<BR>
 8:                      _B(?x) = false (T)<BR>
 
 ![image](https://user-images.githubusercontent.com/10674874/141704472-d02cd57b-c894-4bb3-98cb-54c4f01f88fb.png)
+<HR>
 
 
   

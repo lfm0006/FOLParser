@@ -41,7 +41,7 @@ The generated graph for this resolution is:<BR>
 
 ![image](https://user-images.githubusercontent.com/10674874/141703746-11a6fe17-77df-403d-8c54-b15756042cd7.png)
 <HR>
-<B>FORALL(?x)(_F(?x)->_G(?x)) -> _F(#a)</B><BR>
+<B>FORALL(?x)(_F(?x)->_G(?x)) -> _F(#a)</B><BR><BR>
   
 1: FORALL(?x)(_F(?x)->_G(?x))->_F(#a) = false (F)<BR>
 2:    FORALL(?x)(_F(?x)->_G(?x)) = true (F)<BR>
@@ -52,7 +52,7 @@ The generated graph for this resolution is:<BR>
  
 ![image](https://user-images.githubusercontent.com/10674874/141704307-b132c12c-0106-4b2d-9a87-84c210c06d48.png)
 <HR>
-<B>FORALL(?x)(_A(?x) & _B(?x)) -> (FORALL(?x)(_A(?x)) & FORALL(?x)(_B(?x)))</B><BR>
+<B>FORALL(?x)(_A(?x) & _B(?x)) -> (FORALL(?x)(_A(?x)) & FORALL(?x)(_B(?x)))</B><BR><BR>
 
 1: FORALL(?x)(_A(?x)&_B(?x))->(FORALL(?x)(_A(?x))&FORALL(?x)(_B(?x))) = false (F)<BR>
 2:    FORALL(?x)(_A(?x)&_B(?x)) = true (F)<BR>

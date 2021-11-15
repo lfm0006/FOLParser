@@ -83,6 +83,6 @@ The generated graph for this resolution is:<BR>
 Obs.: Test cases were based on the sentences of exercise 12.1 of Mortari(2001).<BR><BR>
   
 <H2>References</H2>
-MORTARI, C. A. Introdução à Lógica (Introduction to Logic). S. Paulo: Ed. UNESP, 2001. Published in portuguese.<BR>
+MORTARI, C. A. Introdução à Lógica (Introduction to Logic). S. Paulo: Ed. UNESP, 2001 (Published in portuguese).<BR>
 
   

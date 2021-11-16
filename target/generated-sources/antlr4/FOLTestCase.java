@@ -48,7 +48,7 @@ public class FOLTestCase {
 		// Print the tree
 		//System.out.println();
 		//System.out.println();
-		folTree.tableau();
+		folTree.tableau(FOLTree.TYPE_FOL);
 		//System.out.println(folTree.graph.toDOT());
 		return errorListener.errorMessage;
 

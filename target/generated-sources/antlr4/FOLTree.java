@@ -10,6 +10,10 @@ import utils.GraphViz;
 
 public class FOLTree {
 
+	// For use with tableau()
+	public static int TYPE_FOL = 0;
+	public static int TYPE_LATEX = 1;
+
 	public Graph graph = new Graph();
 	static Map<String, String> pairs;	
 	Map<String, Boolean> branches;
@@ -184,22 +188,26 @@ public class FOLTree {
 		v1.visited = value;
 	}
 	
-    public void tableau() {
-    	tableauRecursive(root, 0, "");
+    public void tableau(int type) {
+    	tableauRecursive(root, 0, "", type);
     }
 
-    private void tableauRecursive(Node r, int i, String s) {
+    private void tableauRecursive(Node r, int i, String s, int type) {
         if (r != null)
         {
         	i++;
-            print(r.value, i, s);
-        	tableauRecursive(r.left, i, s + "   ");
-        	tableauRecursive(r.right, i, s + "   ");
+            print(r.value, i, s, type);
+        	tableauRecursive(r.left, i, s + "   ", type);
+        	tableauRecursive(r.right, i, s + "   ", type);
         }
     }
     
-    public void print(FOLAtom value, int i, String s) {
-		System.out.println(i + ": " + s + value.atom + " = " + value.value + " (" + (value.isRelation ? "T" : "F") +") -- " + value.hashCode());
+    public void print(FOLAtom value, int i, String s, int type) {
+    	if(type == TYPE_FOL) {
+    		System.out.println(i + ": " + s + value.atom + " = " + value.value + " (" + (value.isRelation ? "T" : "F") +") -- " + value.hashCode());
+    	} else {
+    		System.out.println(i + ":" + s + " [" + (value.value ? "T" : "F") + "] \\space \\space " + value.getLaTex() + " \\\\");
+    	}
     }
 
     /*
@@ -414,11 +422,11 @@ public class FOLTree {
 			// Print graph using GraphViz()
 			gv.graph = buf;
 	    	File out = new File("tableau.jpg");
-	        //if(!out.exists()) {
+	        if(!out.exists()) {
      			//System.out.println();
 	    		System.out.println("Imprimindo: tableau.jpg");
 	            gv.writeGraphToFile(gv.getGraph( gv.getDotSource(), "jpg"), out );
-	        //}
+	        }
 			
 			return buf.toString();
 		}

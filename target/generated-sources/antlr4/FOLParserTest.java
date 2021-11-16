@@ -11,10 +11,9 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 import utils.BinaryTree;
- 
+
 public class FOLParserTest
 {
-	
 	@SuppressWarnings("resource")
 	public static void main(String[] args) throws Exception 
 	{
@@ -31,13 +30,13 @@ public class FOLParserTest
 	    //String content = "_L(#c) | (~_L(#c) & _T(#s))"; //OK
 	    //String content = "_A -> (_B -> ~~_A)"; // OK
 		//String content = "~(_B -> _B) | (_A & ~_A)"; // OK
-		//String content = "((_A -> _Q(#b)) & ~_Q(#b)) -> ~_A"; //OK
+		String content = "((_A -> _Q(#b)) & ~_Q(#b)) -> ~_A"; //OK
 		//String content = "~(_A & _B) <-> (~_A | ~_B)"; //OK
 		//String content = "(~_A & ~_B) <-> ~(_A | _B)"; //OK
 		//String content = "(~(_A | _B) & (_C <-> _A))"; //OK
 		//String content = "((_C <-> _A) -> ~(_A | _B))"; //OK
 	    //String content = "FORALL(?x)(_P(?x)) -> _P(#a)";
-	    String content = "FORALL(?x)(_F(?x)->_G(?x)) -> _F(#a)";
+	    //String content = "FORALL(?x)(_F(?x)->_G(?x)) -> _F(#a)";
 	    //String content = "FORALL(?x)(_A(?x) & _B(?x)) -> (FORALL(?x)(_A(?x)) & FORALL(?x)(_B(?x)))";
 	    //String content = "EXISTS(?y)(FORALL(?x)(_R(?x?y))) -> FORALL(?x)(EXISTS(?y)(_R(?x?y)))";
 		ANTLRInputStream input = new ANTLRInputStream( content );
@@ -74,7 +73,7 @@ public class FOLParserTest
 		System.out.println();
 
 		// Print the tree
-		folTree.tableau();
+		folTree.tableau(FOLTree.TYPE_LATEX);
 		System.out.println();
 		System.out.println("Checking validity:");
 		if(folTree.isValid()) {

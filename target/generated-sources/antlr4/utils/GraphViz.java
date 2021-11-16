@@ -82,7 +82,8 @@ public class GraphViz
     */
    //private static String DOT = "/usr/bin/dot";	// Linux
    //private static String DOT = "C:\\Graphviz 2.28\\bin\\dot.exe";	// Windows
-   private static String DOT = "C:\\Program Files\\Graphviz\\bin\\dot.exe";	// Windows
+   //private static String DOT = "C:\\Program Files\\Graphviz\\bin\\dot.exe";	// Windows
+   private static String DOT = "dot.exe";	// Windows
    
    //private static String DOT = Config.dot_dir;	// Windows
 

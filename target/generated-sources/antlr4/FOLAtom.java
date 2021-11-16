@@ -46,4 +46,28 @@ public class FOLAtom {
 		this.closed = false;
 	}
 
+	public String getLaTex() {
+		String latex = atom;
+		
+		latex = latex.replaceAll("~~~~([_\\(\\)\\w]+)", " \\\\neg \\\\neg \\\\neg \\\\neg $1 ");
+		latex = latex.replaceAll("~~~([_\\(\\)\\w]+)", " \\\\neg \\\\neg \\\\neg $1 ");
+		latex = latex.replaceAll("~~([_\\(\\)\\w]+)", " \\\\neg \\\\neg $1 ");
+		latex = latex.replaceAll("~([_\\(\\)\\w]+)", " \\\\neg $1 ");
+		latex = latex.replaceAll("_", "");
+		latex = latex.replaceAll("_(\\w)\\((.*)\\)", "$1($2) ");
+		latex = latex.replaceAll("(#\\w)(#\\w)+", "$1,$2");
+		latex = latex.replaceAll("(\\?\\w)(\\?\\w)+", "$1,$2");
+		latex = latex.replaceAll("#", "");
+		latex = latex.replaceAll("\\|", " \\\\lor ");
+		latex = latex.replaceAll("\\&", " \\\\land ");
+		latex = latex.replaceAll("<->", " \\\\iff ");
+		latex = latex.replaceAll("->", " \\\\implies ");
+		latex = latex.replaceAll("EXISTS", " \\\\exists ");
+		latex = latex.replaceAll("FORALL", " \\\\forall ");
+		latex = latex.replaceAll("\\s\\(\\?(\\w+)\\)", " $1");
+		latex = latex.replaceAll("\\?", "");
+	
+		return latex;
+	}
+	
 }

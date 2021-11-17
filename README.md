@@ -24,7 +24,10 @@ Printing of sentences and resolution by tableuax in LaTex implemented.<BR>
 4:          _A = true (T)<BR>
 4:          _B = true (T)<BR>
 <BR>
-  
+
+LaTex:<BR>
+![image](https://user-images.githubusercontent.com/10674874/142086671-67b08e1a-9480-4391-9a4f-b2c557f5ffbe.png)
+
 The generated graph for this resolution is:<BR>
 
 ![image](https://user-images.githubusercontent.com/10674874/141703088-d91629ae-c604-4893-9e99-ce5fa5b3319c.png)

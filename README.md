@@ -14,7 +14,7 @@ Some representation features:
 <HR>
 <H2>Version control</H2>
 1.01 - 16/11/2021<BR>
-Print of sentences and resolution by tableuax in LaTex implemented.<BR>
+Printing of sentences and resolution by tableuax in LaTex implemented.<BR>
 <HR>
 <H2>Examples</H2>
 <B>(_A | _B) -> _B</B><BR><BR>

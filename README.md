@@ -26,7 +26,8 @@ Printing of sentences and resolution by tableuax in LaTex implemented.<BR>
 <BR>
 
 LaTex:<BR>
-![image](https://user-images.githubusercontent.com/10674874/142086919-1b86d86b-aaf7-4787-bfd3-ae8ebd062ed4.png)
+![image](https://user-images.githubusercontent.com/10674874/142086989-8ef32142-1fc8-44bc-8ee5-c656c20c2d7f.png)
+
 
 The generated graph for this resolution is:<BR>
 

@@ -48,6 +48,10 @@ The generated graph for this resolution is:<BR>
 8:                      _A = true (T)<BR>
 <BR>
 
+LaTex:
+![image](https://user-images.githubusercontent.com/10674874/142087216-93935545-ff0f-44da-911f-e5f432e72ef0.png)
+  
+  
 ![image](https://user-images.githubusercontent.com/10674874/141703746-11a6fe17-77df-403d-8c54-b15756042cd7.png)
 <HR>
 <B>FORALL(?x)(_F(?x)->_G(?x)) -> _F(#a)</B><BR><BR>

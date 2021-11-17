@@ -62,7 +62,11 @@ LaTex:
 4:          _F(?x)->_G(?x) = true (F)<BR>
 5:             _F(?x) = false (T)<BR>
 5:             _G(?x) = true (T)<BR>
- 
+  
+LaTex:
+![image](https://user-images.githubusercontent.com/10674874/142087436-bb2d7b0b-b845-4ea2-aa0c-52f51cfdb6d8.png)
+
+  
 ![image](https://user-images.githubusercontent.com/10674874/141704307-b132c12c-0106-4b2d-9a87-84c210c06d48.png)
 <HR>
 <B>FORALL(?x)(_A(?x) & _B(?x)) -> (FORALL(?x)(_A(?x)) & FORALL(?x)(_B(?x)))</B><BR><BR>

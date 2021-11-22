@@ -11,6 +11,9 @@ Some representation definitions:
 - Logical implication (->)
 - Logical equivalence (<->)
 - Quantifiers (FORALL and EXISTS)
+
+A FOL endpoint using the parser is available <A LINK="http://professorfrontino.com.br/fol/" TARGET="_blank">here</A>.
+
 <HR>
 <H2>Versions</H2>
 1.01 - 16/11/2021<BR>

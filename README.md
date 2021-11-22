@@ -93,7 +93,7 @@ The generated graph for this resolution is:<BR>
   
 ![image](https://user-images.githubusercontent.com/10674874/141704597-e9bbbb8c-bb63-4b68-9a44-93a0ccf8bfbd.png)
 
-Obs.: Test cases were based on the sentences of exercise 12.1 of Mortari(2001).<BR><BR>
+Obs.: Test cases were based on the sentences of Mortari's book (2001), exercise 12.1.<BR><BR>
   
 <H2>References</H2>
 MORTARI, C. A. Introdução à Lógica (Introduction to Logic). S. Paulo: Ed. UNESP, 2001 (Published in portuguese).<BR>

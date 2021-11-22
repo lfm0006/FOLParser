@@ -12,7 +12,7 @@ Some representation definitions:
 - Logical equivalence (<->)
 - Quantifiers (FORALL and EXISTS)
 
-A FOL endpoint using the parser is available <A HREF="http://professorfrontino.com.br/fol/" TARGET="_blank">here</A>.
+A FOL endpoint using the parser is available <A HREF="http://professorfrontino.com.br/fol/" TARGET=_blank>here</A>.
 
 <HR>
 <H2>Versions</H2>

@@ -17,7 +17,7 @@ A FOL endpoint using the parser is available <A HREF="http://professorfrontino.c
 <HR>
 <H2>Versions</H2>
 1.01 - 16/11/2021<BR>
-Printing of sentences and resolution by tableaux in LaTex available.<BR>
+Printing of sentences and resolution by tableaux in LaTex is also available.<BR>
 <HR>
 <H2>Examples</H2>
 <B>(_A | _B) -> _B</B><BR><BR>

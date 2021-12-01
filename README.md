@@ -1,7 +1,8 @@
 # FOLParser
 A parser for first-order logic reasoning.
 
-FOLParser was developed in Java using the ANTLR 4.0 framework (https://www.antlr.org/). The semantic layer uses the tableaux method for resolution. This version is working fine with FOL, requiring improvements for both universal and existential quantifiers. Some sentences using quantifiers were tested, giving correct results. A test case with 18 propositional formulas was implemented in JUnit, printing in console the formal reasoning using the tableaux method. A graph of each resolution by tableaux is generated using dot (Graphviz).
+The main purpose in developing a first-order logic reasoner is providing a learning tool aiming to cover some contents of classical Artificial Intelligence related to the Logic studies. The resolution by tableau method is one of such topics that helps to understand the concepts behind logical reasoning. To achieve such tool, a parser is needed to analyse the logical expressions and be able to interpretate semantically along the reasoning process. 
+FOLParser was developed in Java using the ANTLR 4.0 framework (https://www.antlr.org/). The semantic layer uses the tableau method for resolution. At the moment, this version is working fine with propositional logic and some aspects of FOL, requiring improvements for both universal and existential quantifiers. Some sentences using quantifiers were tested, giving correct results. A test case with 18 propositional formulas was implemented in JUnit, printing in console the formal reasoning using the tableau method. A graph of each resolution by tableaux is generated using dot (Graphviz).
 
 Some representation definitions:
 - Variables starting with underline (e.g. _A, _B, etc)
